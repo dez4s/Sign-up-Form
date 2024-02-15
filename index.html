@@ -31,38 +31,47 @@
         </header>
         <form class="sign-up-form" action="">
             <fieldset>
-                <legend>Let's do this!</legend>
+                <div>
+                    <legend>Let's do this!</legend>
+                    <p class="required">Required fields are marked with <span aria-label="required">*</span></p>
+                </div>
 
                 <div class="form-row">
                     <div class="form-fname">
-                        <label for="fname">FIRST NAME</label>
-                        <input type="text" id="fname" name="fname" autocomplete="given-name" required>
+                        <label for="fname">FIRST NAME<span aria-label="required">*</span></label>
+                        <input type="text" id="fname" name="fname" autocomplete="given-name" required <input type="text" pattern="[A-Za-z]+(\s[A-Za-z]+)*" title="Please enter a valid first name (letters only)">
+                        <p></p>
                     </div>
                     <div class="form-lname">
-                        <label for="lname">LAST NAME</label>
-                        <input type="text" id="lname" name="lname" autocomplete="family-name" required>
+                        <label for="lname">LAST NAME<span aria-label="required">*</span></label>
+                        <input type="text" id="lname" name="lname" autocomplete="family-name" required pattern="[A-Za-z]+(\s[A-Za-z]+)*" title="Please enter a valid last name (letters only)"> 
+                        <p></p>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-email">
-                        <label for="email">EMAIL</label>
-                        <input type="email" id="email" name="email" autocomplete="email" required>
+                        <label for="email">EMAIL<span aria-label="required">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" required title="Please include an '@' in the email address.">
+                        <p></p>
                     </div>
                     <div class="form-phone">
                         <label for="phone">PHONE NUMBER</label>
-                        <input type="text" id="phone" name="phone" autocomplete="tel" inputmode="tel">
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" pattern="\+?[0-9]*" title="Please enter a valid phone number (numbers only)">
+                        <p></p>
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-pass">
-                        <label for="pass">PASSWORD</label>
-                        <input type="password" id="pass" name="pass" required>
+                        <label for="pass">PASSWORD<span aria-label="required">*</span></label>
+                        <input type="password" id="pass" name="pass" required minlength="8" maxlength="128">
+                        <p></p>
                     </div>
                     <div class="form-pass-confirm">
-                        <label for="pass-confirm">CONFIRM PASSWORD</label>
-                        <input type="password" id="pass-confirm" name="pass_confirm" required>
+                        <label for="pass-confirm">CONFIRM PASSWORD<span aria-label="required">*</span></label>
+                        <input type="password" id="pass-confirm" name="pass_confirm" required minlength="8" maxlength="128">
+                        <p></p>
                     </div>
                 </div>
             </fieldset>
@@ -70,7 +79,7 @@
                 <button>Create Account</button>
             </div>
         </form>
-        <p login-text>Already have an account? <a class="login-link" href="">Log in</a></p>
+        <p class="login-text">Already have an account? <a class="login-link" href="">Log in</a></p>
     </div>
     <footer class="site-footer">© 2024 Gabriel Panaitescu</footer>
 </body>
