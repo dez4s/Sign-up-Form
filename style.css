@@ -235,7 +235,11 @@ input:focus:invalid {
 
 input:invalid:not(:placeholder-shown, :focus) {
     border: 1px solid red;
-    background-color: rgb(255, 0, 0, 0.05);
+    background-color: rgb(255, 0, 0, 0.055);
+}
+
+input:invalid + label {
+    color: rgb(161, 0, 0);
 }
 
 input:focus:valid {
@@ -244,11 +248,14 @@ input:focus:valid {
 
 input:valid:not(:placeholder-shown, :focus) {
     border: 1px solid green;
-    background-color: rgba(9, 255, 0, 0.05);
+    background-color: rgba(9, 255, 0, 0.08);
 }
 
+input:valid + label {
+    color: rgb(0, 100, 0);
+}
 
-input:invalid + label::after { /* only when the input is invalid, the after pseudo element will be generated and the below styles will work*/
+input:invalid + label::after { 
     content: " (" attr(data-help) ")" ; 
     font-size: 0.7rem;
 }
@@ -290,4 +297,42 @@ input:focus + label::after {
         opacity: 1;
         transform: translateY(0);
     }
+} 
+
+/* input:not(:placeholder-shown) + label,   // !! Original version
+input:focus + label{
+    display: block;
 }
+
+input:invalid {
+    background-color: rgba(255, 0, 0, 0.103);
+    border: 1px solid red;
+}
+
+input:invalid:focus {
+    border: 1px solid red;
+     background-color: transparent;
+}
+
+input:valid {
+    background-color: rgba(0, 128, 0, 0.19);
+    border: 1px solid green;
+}
+
+input:valid:focus {
+    border: 1px solid green;
+}
+
+input:placeholder-shown {
+    border: 1px solid rgba(0, 0, 0, 0.147);
+    background-color: white;
+}
+
+input:focus:invalid + label::after {
+    content: " ( " attr(data-help) ") ";
+    animation: 4s helpAnimation ease-in;
+}
+
+input:invalid + label::after {
+    content: " ( " attr(data-help) ") ";
+} */
