@@ -248,18 +248,17 @@ input:valid:not(:placeholder-shown, :focus) {
 }
 
 
+input:invalid + label::after { /* only when the input is invalid, the after pseudo element will be generated and the below styles will work*/
+    content: " (" attr(data-help) ")" ; 
+    font-size: 0.7rem;
+}
+
 input:focus + label,
 input:not(:placeholder-shown) + label {
     display: block;
 }
 
-input:invalid + label::after {
-    content: " (" attr(data-help) ")" ; 
-    font-size: 0.7rem;
-}
-
-input:placeholder-shown + label::after,
-input:focus:not(:placeholder-shown) + label::after {
+input:focus + label::after {
     animation: 5s helpAnimation ease-in;
 }
 
