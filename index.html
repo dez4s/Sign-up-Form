@@ -29,7 +29,7 @@
                 You <em>know</em> you want to.
             </h1>
         </header>
-        <form class="sign-up-form" action="">
+        <form class="sign-up-form" action="https://httpbin.org/post" method="post">
             <fieldset>
                 <div>
                     <legend>Let's do this!</legend>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-pass-confirm">
                         <input type="password" id="pass-confirm" name="pass_confirm" required maxlength="128" aria-describedby="pass-confirm-error" placeholder="CONFIRM PASSWORD *">
-                        <label for="pass-confirm" data-help="Must match the chosen password">CONFIRM PASSWORD<span aria-label="required"> *</span></label>
+                        <label for="pass-confirm" data-help="Please repeat the password">CONFIRM PASSWORD<span aria-label="required"> *</span></label>
                         <p id="pass-confirm-error"></p>
                     </div>
                 </div>
