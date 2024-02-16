@@ -98,7 +98,7 @@ div.credit {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 70px 0px 25px 20px;
+    padding: 75px 0px 0px 20px;
     border: 1px solid rgb(0, 0, 0, 0.05);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
@@ -149,15 +149,20 @@ button {
 }
 
 label {
-    display: block;
+    display: none;
     font-size: 0.85rem;
     margin-bottom: 2px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 4px;
+    left: 11px;
+    font-size: 0.7rem;
+    animation: slideDown 0.5s ease;
 }
 
 input {
-    padding: 7px 14px;
+    padding: 20px 130px 9px 10px;
     outline: none;
     border-radius: 4px;
     border: 1px solid rgb(0, 0, 0, 0.25);
@@ -190,13 +195,13 @@ input:focus {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-input:not([id="pass-confirm"]):user-invalid {
+/* input:not([id="pass-confirm"]):user-invalid {
     border: 1px solid red;
 }
 
 input:not([id="pass-confirm"]):user-valid {
     border: 1px solid green;
-}
+} */
 
 .site-footer {
     position: fixed;
@@ -205,9 +210,85 @@ input:not([id="pass-confirm"]):user-valid {
     color: black;
 }
 
-input + p {
+input ~ p {
     width: 100%;
     top: 105%; /* Position the text just below the container */
     position: absolute;
     color: red;
+}
+
+input {
+    transition: 0.6s ease-in all;
+}
+
+input:focus::placeholder {
+    opacity: 0;
+}
+
+input::placeholder {
+    font-size: 0.9rem;
+}
+
+input:focus:invalid {
+    border: 1px solid red;
+}
+
+input:invalid:not(:placeholder-shown, :focus) {
+    border: 1px solid red;
+    background-color: rgb(255, 0, 0, 0.05);
+}
+
+input:focus:valid {
+    border: 1px solid green;   
+}
+
+input:valid:not(:placeholder-shown, :focus) {
+    border: 1px solid green;
+    background-color: rgba(9, 255, 0, 0.05);
+}
+
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    display: block;
+}
+
+input:invalid + label::after {
+    content: " (" attr(data-help) ")" ; 
+    font-size: 0.7rem;
+}
+
+input:placeholder-shown + label::after,
+input:focus:not(:placeholder-shown) + label::after {
+    animation: 5s helpAnimation ease-in;
+}
+
+@keyframes helpAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0%;
+    }
+
+    90% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-14px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
