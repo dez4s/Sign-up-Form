@@ -29,7 +29,7 @@ video {
 }
 
 body {
-    height: 100vh;
+    height: 100dvh;
     display: flex;
 }
 
@@ -63,6 +63,10 @@ a {
     font-weight: 700;
 }
 
+.img-background {
+    min-width: 450px;
+}
+
 .logo-img {
     width: 100px;
     height: 100px;
@@ -83,11 +87,13 @@ div.credit {
 .form-section {
     display: flex;
     flex-direction: column; 
+    justify-content: center;
+    gap: 10px;
 }
 
 .form-section header {
-    width: 70%;
-    margin-top: 100px; 
+    width: 800px;
+    max-width: 95%;
 }
 
 .form-section h1 {
@@ -95,10 +101,11 @@ div.credit {
 }
 
 .sign-up-form fieldset {
+    max-width: 95%;
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 75px 0px 0px 20px;
+    padding: 75px 20px 0px 20px;
     border: 1px solid rgb(0, 0, 0, 0.05);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
@@ -166,7 +173,7 @@ input {
     outline: none;
     border-radius: 4px;
     border: 1px solid rgb(0, 0, 0, 0.25);
-    width: 320px;
+    width: 340px;
 }
 
 input:focus {
@@ -203,13 +210,6 @@ input:focus {
 input:not([id="pass-confirm"]):user-valid {
     border: 1px solid green;
 } */
-
-.site-footer {
-    position: fixed;
-    bottom: 0;
-    right: 50%;
-    color: black;
-}
 
 input ~ p {
     width: 100%;
@@ -300,6 +300,55 @@ input:focus + label::after {
     }
 } 
 
+
+@media only screen and (max-width: 1233px) {
+    .img-wrapper {
+        display: none;
+    }
+    
+}
+
+@media only screen and (max-width: 850px) {
+    * {
+        transform: scale(0.97);
+    }
+
+    .sign-up-form legend {
+        top: -40px;
+    }
+
+    .sign-up-form fieldset {
+        padding: 55px 5px 0px 5px;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    p.required {
+        margin-bottom: 10px;
+    }
+
+    [class^="form-"] {
+        margin-bottom: 40px;
+    }
+
+    .form-row:not(div:nth-of-type(-n+1)) {
+        margin-bottom: 0px;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    p.login-text
+    {
+        margin-left: 30px;
+        margin-bottom: 20px;
+    }
+}
+
 /* input:not(:placeholder-shown) + label,   // !! Original version
 input:focus + label{
     display: block;
@@ -337,3 +386,8 @@ input:focus:invalid + label::after {
 input:invalid + label::after {
     content: " ( " attr(data-help) ") ";
 } */
+
+
+
+
+
